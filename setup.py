@@ -9,6 +9,7 @@ setup(
     author='aclark4life',
     include_package_data=True,
     install_requires=[
+        'Zope2',
         'collective.monkeypatcher',
     ],
     name='zope2_bootstrap',

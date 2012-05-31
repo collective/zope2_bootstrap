@@ -1,2 +1,15 @@
-<configure>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:monkey="http://namespaces.plone.org/monkey"
+    i18n_domain="collective.monkeypatcher">
+
+    <include package="collective.monkeypatcher" />
+
+    <monkey:patch
+        description="Patch Zope2 CSS"
+        class="App.Management.Navigation"
+        original="manage_zmi_logout"
+        replacement=".patch.manage_zmi_logout"
+        />
+
 </configure>
