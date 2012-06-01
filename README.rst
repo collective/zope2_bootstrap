@@ -30,3 +30,6 @@ Run buildout and start Zope2::
 Enjoy **Bootstrap goodness**. It's not great, but it's better.
 
 .. _`Twitter Bootstrap`: http://twitter.github.com/bootstrap/index.html
+
+.. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot.png
+
