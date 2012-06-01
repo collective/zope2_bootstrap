@@ -25,7 +25,7 @@ Edit ``buildout.cfg`` to include::
 Run buildout and start Zope2::
 
     $ bin/buildout
-    $ bin/zope2
+    $ bin/zope2 fg
 
 Enjoy **Bootstrap goodness**. It's not great, but it's better.
 
