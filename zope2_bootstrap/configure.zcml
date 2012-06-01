@@ -8,6 +8,7 @@
     <monkey:patch
         description="Patch Zope2 CSS"
         class="App.Management.Navigation"
+        handler=".patch.apply_patch"
         original="manage_zmi_logout"
         replacement=".patch.manage_zmi_logout"
         />
