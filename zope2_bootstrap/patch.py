@@ -36,6 +36,10 @@ def has_editor():
     return hasattr(Products, 'ExternalEditor')
 
 
+def has_plone():
+    return hasattr(Products, 'CMFPlone')
+
+
 # XXX Ignore params and do other work
 def apply_patch(scope, original, replacement):
     # Use bootstrap css
@@ -53,3 +57,18 @@ def apply_patch(scope, original, replacement):
     else:
         dtmlfile = main
     ObjectManager.manage_main = DTMLFile(main, globals())
+
+    # Re-apply Plone zmi hacks
+    # Based on Products/CMFPlone/patches/addzmiplonesite.py
+    if has_plone():
+        code = Products.CMFPlone.patches.addzmiplonesite.ADD_PLONE_SITE_HTML
+        main = ObjectManager.manage_main
+        orig = main.read()
+        pos = orig.find('<!-- Add object widget -->')
+
+        # Add in our button html at the right position
+        new = orig[:pos] + code + orig[pos:]
+
+        # Modify the manage_main
+        main.edited_source = new
+        main._v_cooked = main.cook()
