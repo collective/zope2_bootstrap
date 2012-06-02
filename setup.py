@@ -1,7 +1,8 @@
 from setuptools import find_packages
 from setuptools import setup
+import os
 
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 
 setup(
     author='Alex Clark',
@@ -16,7 +17,8 @@ setup(
         'Zope2',
         'collective.monkeypatcher',
     ],
-    long_description=open('README.rst').read(),
+    long_description=(open('README.rst').read() +
+        open(os.path.join('docs', 'HISTORY.txt')).read()),
     name='zope2_bootstrap',
     packages=find_packages(),
     url='https://github.com/aclark4life/zope2_bootstrap',
