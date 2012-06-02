@@ -1,0 +1,14 @@
+Changelog
+=========
+
+0.0.2 - 2012-06-01
+------------------
+
+- Add table styles
+  [aclark]
+
+0.0.1 - 2012-06-01
+------------------
+
+- Initial release
+  [aclark]
