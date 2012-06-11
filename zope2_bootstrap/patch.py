@@ -10,7 +10,7 @@ security.declarePublic('manage_zmi_logout')
 
 LOGO_HTML = """\
 <div style="margin: 22px 0 22px 0">
-    <a href="<dtml-var "REQUEST.ACTUAL_URL" html_quote>"><img
+    <a href="<dtml-var "REQUEST.SERVER_URL" html_quote>"><img
         src="<dtml-var "REQUEST.SERVER_URL"
         html_quote>/++resource++plone-logo.png"></a>
 </div>
