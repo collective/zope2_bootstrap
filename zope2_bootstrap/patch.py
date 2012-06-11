@@ -24,8 +24,8 @@ direct access to Zope database (ZODB) objects. As such, you should not attempt
 to edit, cut, copy, paste, add, or remove content or change any settings here,
 unless you know exactly what you are doing. You have been warned! Changing
 these settings will void any and all Plone warranties, both written and
-implied. Please do not contact the Plone team about any site damages
-that may occur as a result of ZMI changes.
+implied. Please do not contact the Plone team about any damages
+caused by ZMI changes.
 </div></tr><tr>
 """
 
