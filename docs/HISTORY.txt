@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.0.5 - 2012-06-11
+------------------
+
+- Add contextual logo above manage_tabs
+  [aclark]
+
 0.0.4 - 2012-06-01
 ------------------
 
