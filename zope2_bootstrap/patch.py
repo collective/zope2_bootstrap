@@ -9,9 +9,10 @@ security = ClassSecurityInfo()
 security.declarePublic('manage_zmi_logout')
 
 LOGO_HTML = """\
+<dtml-var "REQUEST">
 <div style="margin: 22px 0 22px 0">
-    <a href="<dtml-var "REQUEST.URL1" html_quote>"><img 
-        src="<dtml-var "REQUEST.URL1" html_quote>/++resource++plone-logo.png"></a>
+    <a href="<dtml-var "REQUEST.ACTUAL_URL" html_quote>"><img 
+        src="<dtml-var "REQUEST.SERVER_URL" html_quote>/++resource++plone-logo.png"></a>
 </div>
 """
 
