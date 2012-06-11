@@ -17,7 +17,8 @@ LOGO_HTML = """\
 
 
 ZMI_WARNING_HTML = """\
-<div class="alert alert-error"><strong>Warning:</strong> <span>The ZMI is a
+<div class="alert alert-error"><strong>Warning:</strong> <span>The Zope
+Management Interface (ZMI) is a 
 very dangerous place to be. You should not attempt to edit, cut, copy, paste,
 add, or remove content or change any settings here, unless you know exactly
 what you are doing. You have been warned! Changing
