@@ -4885,10 +4885,9 @@ button.close {
 /* zope2_bootstrap styles */
 
 body {
-    padding: 0 2em 0 2em;
+    padding: 0 14px 0 14px;
 }
 
 input {
     height: 2em;
 }
-

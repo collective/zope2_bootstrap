@@ -9,6 +9,14 @@ security = ClassSecurityInfo()
 security.declarePublic('manage_zmi_logout')
 
 
+LOGO_HTML = """\
+<div style="margin: 22px 0 22px 0">
+    <a href="<dtml-var "REQUEST.BASE2" html_quote>"><img 
+        src="<dtml-var "REQUEST.BASE2" html_quote>/logo.png"></a>
+</div>
+"""
+
+
 # XXX c.monkeypatcher requires a function or method
 # so we give it one, though we don't need to patch
 # this particular method at all
@@ -70,5 +78,20 @@ def apply_patch(scope, original, replacement):
         new = orig[:pos] + code + orig[pos:]
 
         # Modify the manage_main
+        main.edited_source = new
+        main._v_cooked = main.cook()
+
+    # Add contextual logo, with link to portal root from all contexts
+    # Based on Products/CMFPlone/patches/addzmiplonesite.py
+    if has_plone():
+        code = LOGO_HTML
+        main = ObjectManager.manage_tabs
+        orig = main.read()
+        pos = orig.find('<table cellpadding="0" cellspacing="0" width="100%" border="0">')
+
+        # Add in our logo HTML before the first table
+        new = orig[:pos] + code + orig[pos:]
+
+        # Modify the manage_tabs
         main.edited_source = new
         main._v_cooked = main.cook()
