@@ -8,11 +8,10 @@ import os
 security = ClassSecurityInfo()
 security.declarePublic('manage_zmi_logout')
 
-
 LOGO_HTML = """\
 <div style="margin: 22px 0 22px 0">
-    <a href="<dtml-var "REQUEST.BASE2" html_quote>"><img 
-        src="<dtml-var "REQUEST.BASE2" html_quote>/logo.png"></a>
+    <a href="<dtml-var "REQUEST.URL1" html_quote>"><img 
+        src="<dtml-var "REQUEST.URL1" html_quote>/++resource++plone-logo.png"></a>
 </div>
 """
 
