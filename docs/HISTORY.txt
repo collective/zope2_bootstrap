@@ -1,7 +1,13 @@
 Changelog
 =========
 
-0.0.5 - 2012-06-11
+0.0.7 - 2012-06-11
+------------------
+
+- Use SERVER_URL and SERVER_URL for logo src and href respectively (instead of SERVER_URL, ACTUAL_URL)
+  [aclark]
+
+0.0.6 - 2012-06-11
 ------------------
 
 - Use SERVER_URL and ACTUAL_URL for logo src and href respectively (instead of URLX, BASEX)
