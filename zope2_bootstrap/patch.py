@@ -10,8 +10,9 @@ security.declarePublic('manage_zmi_logout')
 
 LOGO_HTML = """\
 <div style="margin: 22px 0 22px 0">
-    <a href="<dtml-var "REQUEST.ACTUAL_URL" html_quote>"><img 
-        src="<dtml-var "REQUEST.SERVER_URL" html_quote>/++resource++plone-logo.png"></a>
+    <a href="<dtml-var "REQUEST.ACTUAL_URL" html_quote>"><img
+        src="<dtml-var "REQUEST.SERVER_URL"
+        html_quote>/++resource++plone-logo.png"></a>
 </div>
 """
 
@@ -24,7 +25,7 @@ to edit, cut, copy, paste, add, or remove content or change any settings here,
 unless you know exactly what you are doing. You have been warned! Changing
 these settings will void any and all Plone warranties, both written and
 implied. Please do not contact the Plone team about site damages
-that may occur as a result of changes made here.
+that may occur as a result of any changes made here.
 </div></tr><tr>
 """
 
@@ -96,10 +97,12 @@ def apply_patch(scope, original, replacement):
     # Add contextual logo
     # Based on Products/CMFPlone/patches/addzmiplonesite.py
     if has_plone():
+        target = '<table cellpadding="0" cellspacing="0" width="100%"'
+        target += ' border="0">'
         code = LOGO_HTML
         main = ObjectManager.manage_tabs
         orig = main.read()
-        pos = orig.find('<table cellpadding="0" cellspacing="0" width="100%" border="0">')
+        pos = orig.find(target)
 
         # Add in our logo HTML before the first table
         new = orig[:pos] + code + orig[pos:]
@@ -111,10 +114,12 @@ def apply_patch(scope, original, replacement):
     # Add ZMI warning
     # Based on Products/CMFPlone/patches/addzmiplonesite.py
     if has_plone():
+        target = '<table width="100%" cellspacing="0" cellpadding="2"'
+        target += ' border="0">'
         code = ZMI_WARNING_HTML
         main = ObjectManager.manage_tabs
         orig = main.read()
-        pos = orig.find('<table width="100%" cellspacing="0" cellpadding="2" border="0">')
+        pos = orig.find(target)
 
         # Add in our logo HTML before the first table row
         new = orig[:pos] + code + orig[pos:]
