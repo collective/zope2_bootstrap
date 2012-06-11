@@ -4,6 +4,15 @@ Changelog
 0.0.5 - 2012-06-11
 ------------------
 
+- Use SERVER_URL and ACTUAL_URL for logo src and href respectively (instead of URLX, BASEX)
+  [aclark]
+
+- Add ZMI warning, h/t: vangheem
+  [aclark]
+
+0.0.5 - 2012-06-11
+------------------
+
 - Add contextual logo above manage_tabs
   [aclark]
 

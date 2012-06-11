@@ -9,11 +9,22 @@ security = ClassSecurityInfo()
 security.declarePublic('manage_zmi_logout')
 
 LOGO_HTML = """\
-<dtml-var "REQUEST">
 <div style="margin: 22px 0 22px 0">
     <a href="<dtml-var "REQUEST.ACTUAL_URL" html_quote>"><img 
         src="<dtml-var "REQUEST.SERVER_URL" html_quote>/++resource++plone-logo.png"></a>
 </div>
+"""
+
+
+ZMI_WARNING_HTML = """\
+<div class="alert alert-error"><strong>Warning:</strong> <span>The ZMI is a
+very dangerous place to be. You should not attempt to edit, cut, copy, paste,
+add, or remove content or change any settings here, unless you know exactly
+what you are doing. You have been warned! Changing
+these settings will void any and all Plone warranties, both written and
+implied. Please do not contact the Plone team about any Plone site damages
+which may have occured as a result of ZMI changes.
+</div></tr><tr>
 """
 
 
@@ -81,7 +92,7 @@ def apply_patch(scope, original, replacement):
         main.edited_source = new
         main._v_cooked = main.cook()
 
-    # Add contextual logo, with link to portal root from all contexts
+    # Add contextual logo
     # Based on Products/CMFPlone/patches/addzmiplonesite.py
     if has_plone():
         code = LOGO_HTML
@@ -90,6 +101,21 @@ def apply_patch(scope, original, replacement):
         pos = orig.find('<table cellpadding="0" cellspacing="0" width="100%" border="0">')
 
         # Add in our logo HTML before the first table
+        new = orig[:pos] + code + orig[pos:]
+
+        # Modify the manage_tabs
+        main.edited_source = new
+        main._v_cooked = main.cook()
+
+    # Add ZMI warning
+    # Based on Products/CMFPlone/patches/addzmiplonesite.py
+    if has_plone():
+        code = ZMI_WARNING_HTML
+        main = ObjectManager.manage_tabs
+        orig = main.read()
+        pos = orig.find('<table width="100%" cellspacing="0" cellpadding="2" border="0">')
+
+        # Add in our logo HTML before the first table row
         new = orig[:pos] + code + orig[pos:]
 
         # Modify the manage_tabs
