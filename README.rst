@@ -2,7 +2,7 @@
 Introduction
 ============
 
-This does what you think it does: applies `Twitter Bootstrap`_ styles to Zope2.
+This does what you think: applies `Twitter Bootstrap`_ styles to Zope2.
 
 Installation
 ============
