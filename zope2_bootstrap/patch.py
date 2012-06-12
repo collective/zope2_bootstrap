@@ -96,7 +96,7 @@ def apply_patch(scope, original, replacement):
 
     # Add contextual logo
     # Based on Products/CMFPlone/patches/addzmiplonesite.py
-    if has_plone():
+    #if has_plone():
         target = '<table cellpadding="0" cellspacing="0" width="100%"'
         target += ' border="0">'
         code = LOGO_HTML
@@ -113,7 +113,7 @@ def apply_patch(scope, original, replacement):
 
     # Add ZMI warning
     # Based on Products/CMFPlone/patches/addzmiplonesite.py
-    if has_plone():
+    #if has_plone():
         target = '<table width="100%" cellspacing="0" cellpadding="2"'
         target += ' border="0">'
         code = ZMI_WARNING_HTML
