@@ -70,14 +70,23 @@ def apply_patch(scope, original, replacement):
     security.declarePublic('manage_page_style.css')
     setattr(Navigation, 'manage_page_style.css', dtmlfile)
 
+    # Use bootstrap js
+    manage_page_script = os.path.join(here, 'bootstrap', 'js', 'bootstrap.js')
+    dtmlfile = DTMLFile(manage_page_script, globals())
+    security.declarePublic('manage_page_script.js')
+    setattr(Navigation, 'manage_page_script.js', dtmlfile)
+
+    manage_page_footer = os.path.join(here, 'manage_page_footer')
+    ObjectManager.manage_page_footer = DTMLFile(manage_page_footer, globals())
+
     # Add table classes to object listing
     main = os.path.join(here, 'main')  # OFS
     manage_main = os.path.join(here, 'manage_main')
     if has_editor():
-        dtmlfile = manage_main
+        dtmlin = manage_main
     else:
-        dtmlfile = main
-    ObjectManager.manage_main = DTMLFile(main, globals())
+        dtmlin = main
+    ObjectManager.manage_main = DTMLFile(dtmlin, globals())
 
     # Re-apply Plone zmi hacks
     # Based on Products/CMFPlone/patches/addzmiplonesite.py
