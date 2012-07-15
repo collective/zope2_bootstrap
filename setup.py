@@ -16,7 +16,6 @@ setup(
 
     include_package_data=True,
     install_requires=[
-        'Zope2',
         'collective.monkeypatcher',
     ],
     long_description=(open('README.rst').read() +
