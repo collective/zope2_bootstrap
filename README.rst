@@ -2,7 +2,7 @@
 Introduction
 ============
 
-Add Twitter Bootstrap front-end to Zope Management Interface
+Add Twitter Bootstrap styles to Zope Management Interface
 
 Installation
 ============

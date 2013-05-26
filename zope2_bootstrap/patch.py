@@ -19,13 +19,10 @@ LOGO_HTML = """\
 
 ZMI_WARNING_HTML = """\
 <div class="alert alert-error"><strong>Warning:</strong> <span>The Zope
-Management Interface (ZMI) is a very dangerous place to be. It provides
+Management Interface (ZMI) can be a very dangerous place. It provides
 direct access to Zope database (ZODB) objects. As such, you should not attempt
-to edit, cut, copy, paste, add, or remove content or change any settings here,
-unless you know exactly what you are doing. You have been warned! Changing
-these settings will void any and all Plone warranties, both written and
-implied. Please do not contact the Plone team about any damage caused
-by ZMI changes.
+to edit, cut, copy, paste, add, or remove any content or change any settings here,
+unless you know exactly what you are doing. You have been warned!
 </div></tr><tr>
 """
 
