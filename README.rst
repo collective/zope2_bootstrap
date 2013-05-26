@@ -2,7 +2,7 @@
 Introduction
 ============
 
-This does what you think: applies `Twitter Bootstrap`_ styles to Zope2.
+Add Twitter Bootstrap front-end to Zope Management Interface
 
 Installation
 ============
@@ -16,7 +16,7 @@ Do this::
 Edit ``buildout.cfg`` to include::
 
     [buildout]
-    extends = http://pythonpackages.com/buildout/zope2/2.13.x-dev
+    extends = http://pythonpackages.com/buildout/zope2/2.13.x
 
     [zope2]
     eggs += zope2_bootstrap
@@ -27,7 +27,7 @@ Run buildout and start Zope2::
     $ bin/buildout
     $ bin/zope2 fg
 
-Enjoy **Bootstrap goodness**. It's not great, but it's better.
+Enjoy **Bootstrap goodness**.
 
 .. _`Twitter Bootstrap`: http://twitter.github.com/bootstrap/index.html
 
