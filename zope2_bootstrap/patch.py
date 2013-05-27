@@ -2,6 +2,7 @@ from AccessControl import ClassSecurityInfo
 from App.special_dtml import DTMLFile
 from App.Management import Navigation
 from OFS.ObjectManager import ObjectManager
+from config import LOGOUT_HTML
 from config import PLONE_LOGO_HTML
 from config import ZOPE_LOGO_HTML
 from config import ZMI_WARN_HTML
@@ -9,12 +10,15 @@ import Products
 import os
 
 
+here = os.path.dirname(__file__)
 security = ClassSecurityInfo()
+security.declarePublic('manage_page_script.js')
+security.declarePublic('manage_page_style.css')
 security.declarePublic('manage_zmi_logout')
 
 
 # XXX c.monkeypatcher requires a function or method so we give it one, though
-# we don't need to patch this particular method at all
+# we don't need to patch this particular method at all.
 def manage_zmi_logout(self, REQUEST, RESPONSE):
     """Logout current user"""
     p = getattr(REQUEST, '_logout_path', None)
@@ -24,52 +28,46 @@ def manage_zmi_logout(self, REQUEST, RESPONSE):
     realm = RESPONSE.realm
     RESPONSE.setStatus(401)
     RESPONSE.setHeader('WWW-Authenticate', 'basic realm="%s"' % realm, 1)
-    RESPONSE.setBody("""<html>
-<head><title>Logout</title></head>
-<body>
-<p>
-You have been logged out. For real.
-</p>
-</body>
-</html>""")
+    RESPONSE.setBody(LOGOUT_HTML)
     return
 
 
-def has_editor():
-    return hasattr(Products, 'ExternalEditor')
+#def has_editor():
+#    return hasattr(Products, 'ExternalEditor')
 
 
 def has_plone():
     return hasattr(Products, 'CMFPlone')
 
 
-# XXX Ignore params and do other work
+# XXX We don't actually use any of the arguments passed in here.
 def apply_patch(scope, original, replacement):
+    """
+    Patch dtml files
+    """
 
-    # Use bootstrap css
-    here = os.path.dirname(__file__)
+    # Use Twitter Bootstrap CSS
     manage_page_style = os.path.join(here, 'bootstrap', 'css', 'bootstrap.css')
     dtmlfile = DTMLFile(manage_page_style, globals())
-    security.declarePublic('manage_page_style.css')
     setattr(Navigation, 'manage_page_style.css', dtmlfile)
 
-    # Use bootstrap js
+    # Use Twitter Bootstrap JavaScript
     manage_page_script = os.path.join(here, 'bootstrap', 'js', 'bootstrap.js')
     dtmlfile = DTMLFile(manage_page_script, globals())
-    security.declarePublic('manage_page_script.js')
     setattr(Navigation, 'manage_page_script.js', dtmlfile)
 
-    manage_page_footer = os.path.join(here, 'manage_page_footer')
-    ObjectManager.manage_page_footer = DTMLFile(manage_page_footer, globals())
+#    manage_page_footer = os.path.join(here, 'manage_page_footer')
+#    ObjectManager.manage_page_footer = DTMLFile(manage_page_footer, globals())
 
     # Add table classes to object listing
     main = os.path.join(here, 'main')  # OFS
-    manage_main = os.path.join(here, 'manage_main')
-    if has_editor():
-        dtmlin = manage_main
-    else:
-        dtmlin = main
-    ObjectManager.manage_main = DTMLFile(dtmlin, globals())
+#    manage_main = os.path.join(here, 'manage_main')
+#    if has_editor():
+#        dtmlin = manage_main
+#    else:
+#        dtmlin = main
+#    ObjectManager.manage_main = DTMLFile(dtmlin, globals())
+    ObjectManager.manage_main = DTMLFile(main, globals())
 
     # (Re)apply Plone zmi hacks
 

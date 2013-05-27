@@ -22,7 +22,7 @@ ZOPE_LOGO_HTML = """\
         html_quote>/p_/zopelogo_jpg"></a>
 """
 
-ZMI_WARNING_HTML = """\
+ZMI_WARN_HTML = """\
 <div class="alert alert-error"><strong>Warning:</strong> <span>The Zope
 Management Interface (ZMI) can be a dangerous place. It provides
 direct access to Zope database (ZODB) objects. As such, you should not attempt
