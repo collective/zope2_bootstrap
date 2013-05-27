@@ -2,40 +2,19 @@ from AccessControl import ClassSecurityInfo
 from App.special_dtml import DTMLFile
 from App.Management import Navigation
 from OFS.ObjectManager import ObjectManager
+from config import PLONE_LOGO_HTML
+from config import ZOPE_LOGO_HTML
+from config import ZMI_WARN_HTML
 import Products
 import os
+
 
 security = ClassSecurityInfo()
 security.declarePublic('manage_zmi_logout')
 
-PLONE_LOGO_HTML = """\
-<div style="margin: 22px 0 22px 0">
-    <a href="<dtml-var "REQUEST.SERVER_URL" html_quote>"><img
-        src="<dtml-var "REQUEST.SERVER_URL"
-        html_quote>/++resource++plone-logo.png"></a>
-</div>
-"""
 
-ZOPE_LOGO_HTML = """\
-    <a href="<dtml-var "REQUEST.SERVER_URL" html_quote>"><img
-        src="<dtml-var "REQUEST.SERVER_URL"
-        html_quote>/p_/zopelogo_jpg"></a>
-"""
-
-
-ZMI_WARNING_HTML = """\
-<div class="alert alert-error"><strong>Warning:</strong> <span>The Zope
-Management Interface (ZMI) can be a very dangerous place. It provides
-direct access to Zope database (ZODB) objects. As such, you should not attempt
-to edit, cut, copy, paste, add, or remove any content or change any settings here,
-unless you know exactly what you are doing. You have been warned!
-</div></tr><tr>
-"""
-
-
-# XXX c.monkeypatcher requires a function or method
-# so we give it one, though we don't need to patch
-# this particular method at all
+# XXX c.monkeypatcher requires a function or method so we give it one, though
+# we don't need to patch this particular method at all
 def manage_zmi_logout(self, REQUEST, RESPONSE):
     """Logout current user"""
     p = getattr(REQUEST, '_logout_path', None)
@@ -115,7 +94,7 @@ def apply_patch(scope, original, replacement):
     # Based on Products/CMFPlone/patches/addzmiplonesite.py
     target = '<table width="100%" cellspacing="0" cellpadding="2"'
     target += ' border="0">'
-    code = ZMI_WARNING_HTML
+    code = ZMI_WARN_HTML
     main = ObjectManager.manage_tabs
     orig = main.read()
     pos = orig.find(target)
@@ -145,4 +124,3 @@ def apply_patch(scope, original, replacement):
     # Modify the manage_tabs
     main.edited_source = new
     main._v_cooked = main.cook()
-
