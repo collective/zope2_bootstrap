@@ -32,10 +32,6 @@ def manage_zmi_logout(self, REQUEST, RESPONSE):
     return
 
 
-#def has_editor():
-#    return hasattr(Products, 'ExternalEditor')
-
-
 def has_plone():
     return hasattr(Products, 'CMFPlone')
 
@@ -43,7 +39,7 @@ def has_plone():
 # XXX We don't actually use any of the arguments passed in here.
 def apply_patch(scope, original, replacement):
     """
-    Patch dtml files
+    Patch DTML files
     """
 
     # Use Twitter Bootstrap CSS
@@ -56,56 +52,22 @@ def apply_patch(scope, original, replacement):
     dtmlfile = DTMLFile(manage_page_script, globals())
     setattr(Navigation, 'manage_page_script.js', dtmlfile)
 
-#    manage_page_footer = os.path.join(here, 'manage_page_footer')
-#    ObjectManager.manage_page_footer = DTMLFile(manage_page_footer, globals())
-
-    # Add table classes to object listing
-    main = os.path.join(here, 'main')  # OFS
-#    manage_main = os.path.join(here, 'manage_main')
-#    if has_editor():
-#        dtmlin = manage_main
-#    else:
-#        dtmlin = main
-#    ObjectManager.manage_main = DTMLFile(dtmlin, globals())
-    ObjectManager.manage_main = DTMLFile(main, globals())
-
-    # (Re)apply Plone zmi hacks
-
-    # Based on Products/CMFPlone/patches/addzmiplonesite.py
-    if has_plone():
-        code = Products.CMFPlone.patches.addzmiplonesite.ADD_PLONE_SITE_HTML
-    else:
-        code = ''
-
-    main = ObjectManager.manage_main
-    orig = main.read()
-    pos = orig.find('<!-- Add object widget -->')
-
-    # Add in our button html at the right position
-    new = orig[:pos] + code + orig[pos:]
-
-    # Modify the manage_main
-    main.edited_source = new
-    main._v_cooked = main.cook()
+    # Use Twitter Bootstrap table styles
+    manage_main = os.path.join(here, 'manage_main')  # OFS
+    ObjectManager.manage_main = DTMLFile(manage_main, globals())
 
     # Add ZMI warning
-    # Based on Products/CMFPlone/patches/addzmiplonesite.py
     target = '<table width="100%" cellspacing="0" cellpadding="2"'
     target += ' border="0">'
     code = ZMI_WARN_HTML
     main = ObjectManager.manage_tabs
     orig = main.read()
     pos = orig.find(target)
-
-    # Add in our logo HTML before the first table row
     new = orig[:pos] + code + orig[pos:]
-
-    # Modify the manage_tabs
     main.edited_source = new
     main._v_cooked = main.cook()
 
     # Add contextual logo
-    # Based on Products/CMFPlone/patches/addzmiplonesite.py
     target = '<table cellpadding="0" cellspacing="0" width="100%"'
     target += ' border="0">'
     if has_plone():
@@ -115,10 +77,6 @@ def apply_patch(scope, original, replacement):
     main = ObjectManager.manage_tabs
     orig = main.read()
     pos = orig.find(target)
-
-    # Add in our logo HTML before the first table
     new = orig[:pos] + code + orig[pos:]
-
-    # Modify the manage_tabs
     main.edited_source = new
     main._v_cooked = main.cook()
