@@ -8,12 +8,18 @@ import os
 security = ClassSecurityInfo()
 security.declarePublic('manage_zmi_logout')
 
-LOGO_HTML = """\
+PLONE_LOGO_HTML = """\
 <div style="margin: 22px 0 22px 0">
     <a href="<dtml-var "REQUEST.SERVER_URL" html_quote>"><img
         src="<dtml-var "REQUEST.SERVER_URL"
         html_quote>/++resource++plone-logo.png"></a>
 </div>
+"""
+
+ZOPE_LOGO_HTML = """\
+    <a href="<dtml-var "REQUEST.SERVER_URL" html_quote>"><img
+        src="<dtml-var "REQUEST.SERVER_URL"
+        html_quote>/p_/zopelogo_jpg"></a>
 """
 
 
@@ -60,6 +66,7 @@ def has_plone():
 
 # XXX Ignore params and do other work
 def apply_patch(scope, original, replacement):
+
     # Use bootstrap css
     here = os.path.dirname(__file__)
     manage_page_style = os.path.join(here, 'bootstrap', 'css', 'bootstrap.css')
@@ -85,51 +92,57 @@ def apply_patch(scope, original, replacement):
         dtmlin = main
     ObjectManager.manage_main = DTMLFile(dtmlin, globals())
 
-    # Re-apply Plone zmi hacks
+    # (Re)apply Plone zmi hacks
+
     # Based on Products/CMFPlone/patches/addzmiplonesite.py
     if has_plone():
         code = Products.CMFPlone.patches.addzmiplonesite.ADD_PLONE_SITE_HTML
-        main = ObjectManager.manage_main
-        orig = main.read()
-        pos = orig.find('<!-- Add object widget -->')
+    else:
+        code = ''
 
-        # Add in our button html at the right position
-        new = orig[:pos] + code + orig[pos:]
+    main = ObjectManager.manage_main
+    orig = main.read()
+    pos = orig.find('<!-- Add object widget -->')
 
-        # Modify the manage_main
-        main.edited_source = new
-        main._v_cooked = main.cook()
+    # Add in our button html at the right position
+    new = orig[:pos] + code + orig[pos:]
 
-    # Add contextual logo
-    # Based on Products/CMFPlone/patches/addzmiplonesite.py
-    #if has_plone():
-        target = '<table cellpadding="0" cellspacing="0" width="100%"'
-        target += ' border="0">'
-        code = LOGO_HTML
-        main = ObjectManager.manage_tabs
-        orig = main.read()
-        pos = orig.find(target)
-
-        # Add in our logo HTML before the first table
-        new = orig[:pos] + code + orig[pos:]
-
-        # Modify the manage_tabs
-        main.edited_source = new
-        main._v_cooked = main.cook()
+    # Modify the manage_main
+    main.edited_source = new
+    main._v_cooked = main.cook()
 
     # Add ZMI warning
     # Based on Products/CMFPlone/patches/addzmiplonesite.py
-    #if has_plone():
-        target = '<table width="100%" cellspacing="0" cellpadding="2"'
-        target += ' border="0">'
-        code = ZMI_WARNING_HTML
-        main = ObjectManager.manage_tabs
-        orig = main.read()
-        pos = orig.find(target)
+    target = '<table width="100%" cellspacing="0" cellpadding="2"'
+    target += ' border="0">'
+    code = ZMI_WARNING_HTML
+    main = ObjectManager.manage_tabs
+    orig = main.read()
+    pos = orig.find(target)
 
-        # Add in our logo HTML before the first table row
-        new = orig[:pos] + code + orig[pos:]
+    # Add in our logo HTML before the first table row
+    new = orig[:pos] + code + orig[pos:]
 
-        # Modify the manage_tabs
-        main.edited_source = new
-        main._v_cooked = main.cook()
+    # Modify the manage_tabs
+    main.edited_source = new
+    main._v_cooked = main.cook()
+
+    # Add contextual logo
+    # Based on Products/CMFPlone/patches/addzmiplonesite.py
+    target = '<table cellpadding="0" cellspacing="0" width="100%"'
+    target += ' border="0">'
+    if has_plone():
+        code = PLONE_LOGO_HTML
+    else:
+        code = ZOPE_LOGO_HTML
+    main = ObjectManager.manage_tabs
+    orig = main.read()
+    pos = orig.find(target)
+
+    # Add in our logo HTML before the first table
+    new = orig[:pos] + code + orig[pos:]
+
+    # Modify the manage_tabs
+    main.edited_source = new
+    main._v_cooked = main.cook()
+
