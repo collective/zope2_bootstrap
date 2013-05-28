@@ -72,12 +72,12 @@ def apply_patch(scope, original, replacement):
     """
 
     # Use Twitter Bootstrap CSS
-    manage_page_style = os.path.join(here, 'bootstrap', 'css', 'bootstrap.css')
+    manage_page_style = os.path.join(here, 'static', 'css', 'bootstrap.css')
     dtmlfile = DTMLFile(manage_page_style, globals())
     setattr(Navigation, 'manage_page_style.css', dtmlfile)
 
     # Use Twitter Bootstrap JavaScript
-    manage_page_script = os.path.join(here, 'bootstrap', 'js', 'bootstrap.js')
+    manage_page_script = os.path.join(here, 'static', 'js', 'bootstrap.js')
     dtmlfile = DTMLFile(manage_page_script, globals())
     setattr(Navigation, 'manage_page_script.js', dtmlfile)
 
