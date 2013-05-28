@@ -2,22 +2,19 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:monkey="http://namespaces.plone.org/monkey"
+    xmlns:zcml="http://namespaces.plone.org/zcml"
     >
 
     <adapter factory=".patch.AppTraverser" />
 
-    <configure zcml:condition="not-installed Products.CMFPlone">
-
-        <!-- Provide Zope2 splash screen only when Plone is not installed -->
-        <browser:page
-            for="OFS.interfaces.IApplication"
-            name="zope2-overview"
-            class=".patch.Overview"
-            permission="zope.Public"
-            template="zope2-overview.pt"
-            />
-
-    </configure>
+    <!-- Provide Zope2 splash screen when Plone is not installed -->
+    <browser:page zcml:condition="not-installed Products.CMFPlone"
+        for="OFS.interfaces.IApplication"
+        name="zope2-overview"
+        class=".patch.Overview"
+        permission="zope.Public"
+        template="zope2-overview.pt"
+        />
 
     <browser:resource
         name="zopeHIres.jpg"
