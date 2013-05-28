@@ -1,11 +1,17 @@
+from .config import LOGOUT_HTML
+from .config import PLONE_LOGO_HTML
+from .config import ZOPE_LOGO_HTML
+from .config import ZMI_WARN_HTML
 from AccessControl import ClassSecurityInfo
 from App.special_dtml import DTMLFile
 from App.Management import Navigation
 from OFS.ObjectManager import ObjectManager
-from config import LOGOUT_HTML
-from config import PLONE_LOGO_HTML
-from config import ZOPE_LOGO_HTML
-from config import ZMI_WARN_HTML
+from OFS.interfaces import IApplication
+from ZPublisher.BaseRequest import DefaultPublishTraverse
+from zope.component import adapts
+from zope.component import queryMultiAdapter
+from zope.interface import Interface
+from zope.publisher.interfaces import IRequest
 import Products
 import os
 
@@ -15,6 +21,29 @@ security = ClassSecurityInfo()
 security.declarePublic('manage_page_script.js')
 security.declarePublic('manage_page_style.css')
 security.declarePublic('manage_zmi_logout')
+
+
+class Overview:
+    """
+    """
+
+
+# Based on https://github.com/plone/Products.CMFPlone/blob/master/Products/\
+# CMFPlone/browser/admin.py#L34
+class AppTraverser(DefaultPublishTraverse):
+    """
+    """
+    adapts(IApplication, IRequest)
+
+    def publishTraverse(self, request, name):
+        """
+        """
+        if name == 'index_html':
+            view = queryMultiAdapter(
+                (self.context, request), Interface, 'zope2-overview')
+            if view is not None:
+                return view
+        return DefaultPublishTraverse.publishTraverse(self, request, name)
 
 
 # XXX c.monkeypatcher requires a function or method so we give it one, though
@@ -67,7 +96,7 @@ def apply_patch(scope, original, replacement):
     main.edited_source = new
     main._v_cooked = main.cook()
 
-    # Add contextual logo
+    # Add logo
     target = '<table cellpadding="0" cellspacing="0" width="100%"'
     target += ' border="0">'
     if has_plone():

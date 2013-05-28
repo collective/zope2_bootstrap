@@ -1,7 +1,18 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:monkey="http://namespaces.plone.org/monkey"
-    i18n_domain="collective.monkeypatcher">
+    >
+
+    <adapter factory=".patch.AppTraverser" />
+
+    <browser:page
+        for="OFS.interfaces.IApplication"
+        name="zope2-overview"
+        class=".patch.Overview"
+        permission="zope.Public"
+        template="zope2-overview.pt"
+        />
 
     <include package="collective.monkeypatcher" />
 
