@@ -6,13 +6,18 @@
 
     <adapter factory=".patch.AppTraverser" />
 
-    <browser:page
-        for="OFS.interfaces.IApplication"
-        name="zope2-overview"
-        class=".patch.Overview"
-        permission="zope.Public"
-        template="zope2-overview.pt"
-        />
+    <configure zcml:condition="not-installed Products.CMFPlone">
+
+        <!-- Provide Zope2 splash screen only when Plone is not installed -->
+        <browser:page
+            for="OFS.interfaces.IApplication"
+            name="zope2-overview"
+            class=".patch.Overview"
+            permission="zope.Public"
+            template="zope2-overview.pt"
+            />
+
+    </configure>
 
     <browser:resource
         name="zopeHIres.jpg"
