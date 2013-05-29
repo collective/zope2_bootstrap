@@ -5,6 +5,9 @@
     .content {
         text-align: center;
     }
+    .footer {
+        float: right;
+    }
 </style>
 </head>
 <body>
@@ -20,14 +23,14 @@
             <img src="/++resource++zopeHIres.jpg">
 
             <!-- Manage -->
-            <a class="btn btn-large" href="/manage_main">Manage Zope</a>
+            <a class="btn btn-large btn-warning" href="/manage_main">Zope Management Interface</a>
 
         </div>
 
         <hr>
 
         <footer>
-            <p><a href="http://zope.org">Zope Community</a></p>
+            <p class="footer"><a href="http://zope.org">Zope Community</a></p>
         </footer>
 
     </div>
