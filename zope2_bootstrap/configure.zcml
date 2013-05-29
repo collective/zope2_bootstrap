@@ -17,6 +17,11 @@
         />
 
     <browser:resource
+        name="VlogoWhite250.gif"
+        image="VlogoWhite250.gif"
+        />
+
+    <browser:resource
         name="zopeHIres.jpg"
         image="zopeHIres.jpg"
         />

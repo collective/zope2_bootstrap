@@ -27,3 +27,5 @@ Enjoy **Bootstrap goodness**.
 .. _`Twitter Bootstrap`: http://twitter.github.com/bootstrap/index.html
 
 .. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot.png
+
+.. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot2.png

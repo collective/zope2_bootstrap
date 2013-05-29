@@ -19,7 +19,7 @@ PLONE_LOGO_HTML = """\
 ZOPE_LOGO_HTML = """\
     <a href="<dtml-var "REQUEST.SERVER_URL" html_quote>"><img
         src="<dtml-var "REQUEST.SERVER_URL"
-        html_quote>/p_/zopelogo_jpg"></a>
+        html_quote>/++resource++VlogoWhite250.gif"></a>
 """
 
 ZMI_WARN_HTML = """\
