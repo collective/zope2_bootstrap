@@ -22,11 +22,19 @@ ZOPE_LOGO_HTML = """\
         html_quote>/++resource++VlogoWhite250.gif"></a>
 """
 
-ZMI_WARN_HTML = """\
-<div class="alert alert-error"><strong>Warning:</strong> <span>The Zope
-Management Interface (ZMI) can be a dangerous place. It provides
-direct access to Zope database (ZODB) objects. As such, you should not attempt
-to edit, cut, copy, paste, add, or remove any content or change any settings
-here, unless you know exactly what you are doing. You have been warned!
-</div></tr><tr>
+#ZMI_WARN_HTML = """\
+#<div class="alert"><strong>Warning:</strong> <span>The Zope
+#Management Interface (ZMI) can be a dangerous place. It provides
+#direct access to Zope database (ZODB) objects. As such, you should not attempt
+#to edit, cut, copy, paste, add, or remove any content or change any settings
+#here, unless you know exactly what you are doing. You have been warned!
+#</div></tr><tr>
+#"""
+
+
+ZMI_WARN_HTML = """
+    <div class="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Warning!</strong> Best check yo self, you're not looking too good.
+    </div>
 """

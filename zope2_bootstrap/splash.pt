@@ -23,7 +23,7 @@
             <img src="/++resource++zopeHIres.jpg">
 
             <!-- Manage -->
-            <a class="btn btn-large btn-warning" href="/manage_main">Zope Management Interface</a>
+            <a class="btn btn-large" href="/manage_main">Zope Management Interface</a>
 
         </div>
 
