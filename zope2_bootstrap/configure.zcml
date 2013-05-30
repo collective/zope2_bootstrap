@@ -28,7 +28,7 @@
     <include package="collective.monkeypatcher" />
 
     <monkey:patch
-        description="Patch Zope2 CSS"
+        description="Add Twitter Bootstrap to Zope Management Interface"
         class="App.Management.Navigation"
         handler=".patch.apply_patch"
         original="manage_zmi_logout"
