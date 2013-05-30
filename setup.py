@@ -9,7 +9,7 @@ VERSION = '0.0.8'
 setup(
     author='Alex Clark',
     author_email='aclark@aclark.net',
-    description="Add Twitter Bootstrap styles to Zope Management Interface",
+    description="Add Twitter Bootstrap to Zope Management Interface",
     include_package_data=True,
     install_requires=[
         'collective.monkeypatcher',
