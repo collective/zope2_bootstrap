@@ -18,12 +18,12 @@
 
     <browser:resource
         name="VlogoWhite250.gif"
-        image="VlogoWhite250.gif"
+        image="static/img/VlogoWhite250.gif"
         />
 
     <browser:resource
         name="zopeHIres.jpg"
-        image="zopeHIres.jpg"
+        image="static/img/zopeHIres.jpg"
         />
 
     <include package="collective.monkeypatcher" />
