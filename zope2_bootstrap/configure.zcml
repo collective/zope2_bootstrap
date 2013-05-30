@@ -13,7 +13,7 @@
         name="zope2-overview"
         class=".patch.Overview"
         permission="zope.Public"
-        template="zope2-overview.pt"
+        template="splash.pt"
         />
 
     <browser:resource

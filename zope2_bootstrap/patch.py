@@ -17,10 +17,10 @@ import os
 
 
 here = os.path.dirname(__file__)
-security = ClassSecurityInfo()
-security.declarePublic('manage_page_script.js')
-security.declarePublic('manage_page_style.css')
-security.declarePublic('manage_zmi_logout')
+#security = ClassSecurityInfo()
+#security.declarePublic('manage_page_script.js')
+#security.declarePublic('manage_page_style.css')
+#security.declarePublic('manage_zmi_logout')
 
 
 class Overview:
