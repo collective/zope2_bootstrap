@@ -1,6 +1,6 @@
+from .config import LOGO_PLONE_HTML
+from .config import LOGO_ZOPE_HTML
 from .config import LOGOUT_HTML
-from .config import PLONE_LOGO_HTML
-from .config import ZOPE_LOGO_HTML
 from .config import ZMI_WARN_HTML
 from App.special_dtml import DTMLFile
 from App.Management import Navigation
@@ -16,11 +16,6 @@ import os
 
 
 here = os.path.dirname(__file__)
-
-
-class Overview:
-    """
-    """
 
 
 # Based on https://github.com/plone/Products.CMFPlone/blob/master/Products/\
@@ -101,12 +96,12 @@ def apply_patch(scope, original, replacement):
     main = ObjectManager.manage_tabs
     cook(code, main, target)
 
-    # Add logo
+    # Add Zope or Plone logo
     target = '<table cellpadding="0" cellspacing="0" width="100%"'
     target += ' border="0">'
     if has_plone():
-        code = PLONE_LOGO_HTML
+        code = LOGO_PLONE_HTML
     else:
-        code = ZOPE_LOGO_HTML
+        code = LOGO_ZOPE_HTML
     main = ObjectManager.manage_tabs
     cook(code, main, target)

@@ -11,7 +11,6 @@
     <browser:page zcml:condition="not-installed Products.CMFPlone"
         for="OFS.interfaces.IApplication"
         name="zope2-overview"
-        class=".patch.Overview"
         permission="zope.Public"
         template="splash.pt"
         />
