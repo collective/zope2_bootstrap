@@ -5,9 +5,11 @@
     xmlns:zcml="http://namespaces.plone.org/zcml"
     >
 
+
+    <!-- Based on https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/browser/admin.zcml#L57 -->
     <adapter factory=".patch.AppTraverser" />
 
-    <!-- Provide Zope2 splash screen when Plone is not installed -->
+    <!-- Provide Zope2 splash when Plone is not installed -->
     <browser:page zcml:condition="not-installed Products.CMFPlone"
         for="OFS.interfaces.IApplication"
         name="zope2-overview"
