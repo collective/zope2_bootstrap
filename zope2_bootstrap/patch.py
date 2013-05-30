@@ -68,9 +68,11 @@ def apply_patch(scope, original, replacement):
     """
 
     # Use Twitter Bootstrap CSS/JavaScript
+    manage_main = os.path.join(here, 'manage_main')  # Our custom manage_main
     manage_page_style = os.path.join(here, 'static', 'css', 'bootstrap.css')
     manage_page_script = os.path.join(here, 'static', 'js', 'bootstrap.js')
     manage_page_header = os.path.join(here, 'manage_page_header')
+    manage_page_footer = os.path.join(here, 'manage_page_footer')
 
     dtmlfile = DTMLFile(manage_page_style, globals())
     setattr(Navigation, 'manage_page_style.css', dtmlfile)
@@ -81,8 +83,10 @@ def apply_patch(scope, original, replacement):
     dtmlfile = DTMLFile(manage_page_header, globals())
     setattr(Navigation, 'manage_page_header', dtmlfile)
 
-    # Use Twitter Bootstrap table styles
-    manage_main = os.path.join(here, 'manage_main')  # Our custom manage_main
+    dtmlfile = DTMLFile(manage_page_footer, globals())
+    setattr(Navigation, 'manage_page_footer', dtmlfile)
+
+    # Use class="table" on folder contents
     ObjectManager.manage_main = DTMLFile(manage_main, globals())
 
     # Add ZMI warning
