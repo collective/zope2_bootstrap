@@ -41,6 +41,17 @@ class AppTraverser(DefaultPublishTraverse):
         return DefaultPublishTraverse.publishTraverse(self, request, name)
 
 
+def cook(code, main, target):
+    """
+    Cook resources
+    """
+    orig = main.read()
+    pos = orig.find(target)
+    new = orig[:pos] + code + orig[pos:]
+    main.edited_source = new
+    main._v_cooked = main.cook()
+
+
 # XXX c.monkeypatcher requires a function or method so we give it one, though
 # we don't need to patch this particular method at all.
 def manage_zmi_logout(self, REQUEST, RESPONSE):
@@ -88,11 +99,7 @@ def apply_patch(scope, original, replacement):
     target += ' border="0">'
     code = ZMI_WARN_HTML
     main = ObjectManager.manage_tabs
-    orig = main.read()
-    pos = orig.find(target)
-    new = orig[:pos] + code + orig[pos:]
-    main.edited_source = new
-    main._v_cooked = main.cook()
+    cook(code, main, target)
 
     # Add logo
     target = '<table cellpadding="0" cellspacing="0" width="100%"'
@@ -102,8 +109,4 @@ def apply_patch(scope, original, replacement):
     else:
         code = ZOPE_LOGO_HTML
     main = ObjectManager.manage_tabs
-    orig = main.read()
-    pos = orig.find(target)
-    new = orig[:pos] + code + orig[pos:]
-    main.edited_source = new
-    main._v_cooked = main.cook()
+    cook(code, main, target)
