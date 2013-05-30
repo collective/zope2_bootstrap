@@ -6,6 +6,7 @@ Changelog
 
 - Upgrade Twitter Bootstrap version to 2.3.2
 - Add splash screen h/t: Plone
+- Fix JavaScript
 
 0.0.7 - 2012-06-11
 ------------------
