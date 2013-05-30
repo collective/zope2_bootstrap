@@ -71,16 +71,12 @@ def apply_patch(scope, original, replacement):
     manage_page_script = os.path.join(here, 'static', 'js', 'bootstrap.js')
     manage_page_header = os.path.join(here, 'manage_page_header')
     manage_page_footer = os.path.join(here, 'manage_page_footer')
-
     dtmlfile = DTMLFile(manage_page_style, globals())
     setattr(Navigation, 'manage_page_style.css', dtmlfile)
-
     dtmlfile = DTMLFile(manage_page_script, globals())
     setattr(Navigation, 'manage_page_script.js', dtmlfile)
-
     dtmlfile = DTMLFile(manage_page_header, globals())
     setattr(Navigation, 'manage_page_header', dtmlfile)
-
     dtmlfile = DTMLFile(manage_page_footer, globals())
     setattr(Navigation, 'manage_page_footer', dtmlfile)
 
