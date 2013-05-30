@@ -21,6 +21,11 @@
 </style>
 <dtml-else>
 <link rel="stylesheet" type="text/css" href="&dtml-BASEPATH1;/manage_page_style.css" />
+<style>
+    input {
+        height: 2em !important;
+    }
+</style>
 </dtml-if>
 </dtml-if>
 </dtml-let>
