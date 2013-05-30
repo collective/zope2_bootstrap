@@ -26,9 +26,10 @@ ZMI_WARN_HTML = """
     <div class="alert">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <strong>Warning:</strong> <span>The Zope
-    Management Interface (ZMI) can be a dangerous place. It provides
-    direct access to Zope database (ZODB) objects. As such, you should not attempt
-    to edit, cut, copy, paste, add, or remove any content or change any settings
-    here, unless you know exactly what you are doing. You have been warned!
+    Management Interface (ZMI) can be a dangerous place. It provides direct
+    access to Zope database (ZODB) objects. As such, you should not attempt
+    to edit, cut, copy, paste, add, or remove any content or change any
+    settings here, unless you know exactly what you are doing. You have been
+    warned!
     </div>
 """

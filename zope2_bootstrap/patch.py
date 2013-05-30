@@ -2,7 +2,6 @@ from .config import LOGOUT_HTML
 from .config import PLONE_LOGO_HTML
 from .config import ZOPE_LOGO_HTML
 from .config import ZMI_WARN_HTML
-from AccessControl import ClassSecurityInfo
 from App.special_dtml import DTMLFile
 from App.Management import Navigation
 from OFS.ObjectManager import ObjectManager
@@ -61,7 +60,6 @@ def has_plone():
     return hasattr(Products, 'CMFPlone')
 
 
-# XXX We don't actually use any of the arguments passed in here.
 def apply_patch(scope, original, replacement):
     """
     Patch DTML files
