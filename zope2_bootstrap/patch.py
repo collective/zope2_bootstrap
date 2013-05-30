@@ -73,6 +73,7 @@ def apply_patch(scope, original, replacement):
     manage_page_script = os.path.join(here, 'static', 'js', 'bootstrap.js')
     manage_page_header = os.path.join(here, 'manage_page_header')
     manage_page_footer = os.path.join(here, 'manage_page_footer')
+    manage_tabs = os.path.join(here, 'manage_tabs')
 
     dtmlfile = DTMLFile(manage_page_style, globals())
     setattr(Navigation, 'manage_page_style.css', dtmlfile)
@@ -88,6 +89,7 @@ def apply_patch(scope, original, replacement):
 
     # Use class="table" on folder contents
     ObjectManager.manage_main = DTMLFile(manage_main, globals())
+    ObjectManager.manage_tabs = DTMLFile(manage_tabs, globals())
 
     # Add ZMI warning
     target = '<table width="100%" cellspacing="0" cellpadding="2"'
