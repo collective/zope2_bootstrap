@@ -21,8 +21,8 @@
 </style>
 <dtml-else>
 <link rel="stylesheet" type="text/css" href="&dtml-BASEPATH1;/manage_page_style.css" />
+<!-- XXX This makes tables look worse, but form inputs better. -->
 <style>
-    <!-- XXX This makes tables look worse, but form inputs better. -->
     input {
         height: 26px !important;
     }
