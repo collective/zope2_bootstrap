@@ -12,7 +12,7 @@ The easiest way to use ``zope2_bootstrap`` with ``Zope2`` is to install Zope2 wi
     $ plock -z
     $ bin/zope2 fg
 
-Now enjoy **Bootstrap goodness** in Zope2:
+Now enjoy **Bootstrap 3 goodness** in Zope2:
 
 .. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot.png
 .. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot2.png
