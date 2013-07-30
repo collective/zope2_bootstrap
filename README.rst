@@ -6,7 +6,7 @@ Bootstrap 3 for Zope 2 Management Interface
 Installation
 ============
 
-The easiest way to use ``zope2_bootstrap`` with Zope2 is to install Zope2 with ``plock``::
+The easiest way to use ``zope2_bootstrap`` with ``Zope2`` is to install Zope2 with ``plock``::
 
     $ pip install plock
     $ plock -z
