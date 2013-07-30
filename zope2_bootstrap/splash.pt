@@ -1,39 +1,30 @@
+<!DOCTYPE html>
 <html>
-<head>
-<link href="/manage_page_style.css" rel="stylesheet">
-<style>
-    .content {
-        text-align: center;
-    }
-    .footer {
-        float: right;
-    }
-</style>
-</head>
-<body>
+  <head>
+    <title>Zope2 Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+    <style>
+        .footer {
+            text-align: right;
+            padding: 1em;
+        }
 
-    <div class="container">
-
-        <!-- Fork me -->
-        <a href="https://github.com/aclark4life/zope2_bootstrap"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-
-        <div class="content">
-
-            <!-- Big Zope -->
-            <img src="/++resource++zopeHIres.jpg">
-
-            <!-- Manage -->
-            <a class="btn btn-large" href="/manage_main">Zope Management Interface</a>
-
-        </div>
-
-        <hr>
-
-        <footer>
-            <p class="footer"><a href="http://zope.org">Zope Community</a></p>
-        </footer>
-
+    </style>
+  </head>
+  <body>
+    <a href="https://github.com/aclark4life/zope2_bootstrap"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    <!-- Big Zope -->
+    <img style="width: 100%" src="/++resource++zopeHIres.jpg">
+    <!-- Manage -->
+    <hr>
+    <div style="text-align: center">
+        <a href="/manage_main" class="btn btn-default btn-large">Zope Management Interface</a>
     </div>
-
-</body>
+    <footer>
+        <p class="footer"><a href="http://zope.org">Zope Community</a></p>
+    </footer>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+  </body>
 </html>

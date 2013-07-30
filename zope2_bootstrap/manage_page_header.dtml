@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <dtml-unless management_page_charset>
@@ -20,18 +21,12 @@
 -->
 </style>
 <dtml-else>
-<link rel="stylesheet" type="text/css" href="&dtml-BASEPATH1;/manage_page_style.css" />
-<!-- XXX This makes tables look worse, but form inputs better. -->
-<style>
-    input {
-        height: 26px !important;
-    }
-</style>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
 </dtml-if>
 </dtml-if>
 </dtml-let>
 
-</head>
-<body> 
 
+</head>
+<body bgcolor="#ffffff" link="#000099" alink="#000099" vlink="#000099">
 <div class="container">
