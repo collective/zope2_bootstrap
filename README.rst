@@ -1,31 +1,20 @@
 Introduction
 ============
 
-Add Twitter Bootstrap to Zope Management Interface
+Bootstrap 3 for Zope 2 Management Interface
 
 Installation
 ============
 
-Do this::
+The easiest way to use ``zope2_bootstrap`` with Zope2 is to install Zope2 with ``plock``::
 
-    $ virtualenv .
-    $ bin/pip install zc.buildout
-    $ bin/buildout init
-
-Edit ``buildout.cfg`` to contain::
-
-    [buildout]
-    extends = https://raw.github.com/pythonpackages/buildout-zope2/master/2.13.x
-
-Run Buildout and start Zope2::
-
-    $ bin/buildout
+    $ pip install plock
+    $ plock -z
     $ bin/zope2 fg
 
-Enjoy **Bootstrap goodness**:
+Now enjoy **Bootstrap goodness** in Zope2:
 
 .. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot.png
 .. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot2.png
 
-.. _`Twitter Bootstrap`: http://twitter.github.com/bootstrap/index.html
-
+.. _`Bootstrap`: http://getbootstrap.com/
