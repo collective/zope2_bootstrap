@@ -14,7 +14,7 @@ setup(
     install_requires=[
         'collective.monkeypatcher',
     ],
-    long_description=(open('README.rst').read() +
+    long_description=(open('README.rst').read() + '\n'
         open(os.path.join('docs', 'HISTORY.txt')).read()),
     name='zope2_bootstrap',
     packages=find_packages(),
