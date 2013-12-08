@@ -15,6 +15,8 @@
 <dtml-if is_nav4>
 <dtml-else>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<style>
+</style>
 </dtml-if>
 </dtml-if>
 </dtml-let>
