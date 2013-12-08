@@ -1,54 +1,45 @@
 Changelog
 =========
 
-0.0.8 - 2013-05-29
+0.0.8 - 2013-12-08
 ------------------
 
-- Upgrade Twitter Bootstrap version to 2.3.2
-- Add splash screen h/t: Plone
+- Upgrade Bootstrap to 3
+- Add splash screen based on Plone
 - Fix JavaScript
 
 0.0.7 - 2012-06-11
 ------------------
 
 - Use SERVER_URL and SERVER_URL for logo src and href respectively (instead of SERVER_URL, ACTUAL_URL)
-  [aclark]
 
 0.0.6 - 2012-06-11
 ------------------
 
 - Use SERVER_URL and ACTUAL_URL for logo src and href respectively (instead of URLX, BASEX)
-  [aclark]
-
 - Add ZMI warning, h/t: vangheem
-  [aclark]
 
 0.0.5 - 2012-06-11
 ------------------
 
 - Add contextual logo above manage_tabs
-  [aclark]
 
 0.0.4 - 2012-06-01
 ------------------
 
 - Re-apply Plone ZMI hacks
-  [aclark]
 
 0.0.3 - 2012-06-01
 ------------------
 
 - Fix brown bag
-  [aclark]
 
 0.0.2 - 2012-06-01
 ------------------
 
 - Add table styles
-  [aclark]
 
 0.0.1 - 2012-06-01
 ------------------
 
 - Initial release
-  [aclark]
