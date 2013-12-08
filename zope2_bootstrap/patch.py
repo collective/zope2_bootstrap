@@ -1,7 +1,7 @@
-from .config import LOGO_PLONE_HTML
-from .config import LOGO_ZOPE_HTML
-from .config import LOGOUT_HTML
-from .config import ZMI_WARN_HTML
+from .config import LOGO_PLONE
+from .config import LOGO_ZOPE
+from .config import LOGOUT
+from .config import ZMI_WARNING
 from App.special_dtml import DTMLFile
 from App.Management import Navigation
 from OFS.ObjectManager import ObjectManager
@@ -13,9 +13,6 @@ from zope.interface import Interface
 from zope.publisher.interfaces import IRequest
 import Products
 import os
-
-
-here = os.path.dirname(__file__)
 
 
 # Based on https://github.com/plone/Products.CMFPlone/blob/master/Products/\
@@ -58,7 +55,7 @@ def manage_zmi_logout(self, REQUEST, RESPONSE):
     realm = RESPONSE.realm
     RESPONSE.setStatus(401)
     RESPONSE.setHeader('WWW-Authenticate', 'basic realm="%s"' % realm, 1)
-    RESPONSE.setBody(LOGOUT_HTML)
+    RESPONSE.setBody(LOGOUT)
     return
 
 
@@ -68,8 +65,9 @@ def has_plone():
 
 def apply_patch(scope, original, replacement):
     """
-    Patch DTML files
+    Patch DTML
     """
+    here = os.path.dirname(__file__)
 
     # Use Twitter Bootstrap CSS/JavaScript
     manage_main = os.path.join(here, 'manage_main')  # Our custom manage_main
@@ -86,7 +84,7 @@ def apply_patch(scope, original, replacement):
     # Add ZMI warning
     target = '<table width="100%" cellspacing="0" cellpadding="2"'
     target += ' border="0">'
-    code = ZMI_WARN_HTML
+    code = ZMI_WARNING
     main = ObjectManager.manage_tabs
     cook(code, main, target)
 
@@ -94,8 +92,8 @@ def apply_patch(scope, original, replacement):
     target = '<table cellpadding="0" cellspacing="0" width="100%"'
     target += ' border="0">'
     if has_plone():
-        code = LOGO_PLONE_HTML
+        code = LOGO_PLONE
     else:
-        code = LOGO_ZOPE_HTML
+        code = LOGO_ZOPE
     main = ObjectManager.manage_tabs
     cook(code, main, target)
