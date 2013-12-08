@@ -13,20 +13,11 @@
      zmi_embedded_css="1">
 <dtml-if use_css>
 <dtml-if is_nav4>
-<style type="text/css">
-<!--
-
-<dtml-var manage_page_style.css>
-
--->
-</style>
 <dtml-else>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 </dtml-if>
 </dtml-if>
 </dtml-let>
-
-
 </head>
 <body bgcolor="#ffffff" link="#000099" alink="#000099" vlink="#000099">
 <div class="container">
