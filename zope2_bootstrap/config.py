@@ -27,7 +27,7 @@ ZMI_WARN_HTML = """
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <strong>Warning:</strong> the <span>Zope Management Interface (ZMI)
     provides direct access to Zope database objects (ZODB).
-    Do not attempt to edit, cut, copy, paste, add or
+    Do not attempt to copy, cut, paste, add, edit or
     remove any content, or change any settings, unless you know exactly
     what you are doing!
 </div>
