@@ -5,7 +5,7 @@ Changelog
 ------------------
 
 - Upgrade to Bootstrap 3
-- Add splash screen based on Plone
+- Add Zope2-only splash screen based on Plone
 - Fix JavaScript
 
 0.0.7 - 2012-06-11
