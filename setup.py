@@ -9,7 +9,7 @@ VERSION = '0.0.8'
 setup(
     author='Alex Clark',
     author_email='aclark@aclark.net',
-    description="Add Twitter Bootstrap to Zope Management Interface",
+    description="ZMI Bootstrapped",
     include_package_data=True,
     install_requires=[
         'collective.monkeypatcher',
