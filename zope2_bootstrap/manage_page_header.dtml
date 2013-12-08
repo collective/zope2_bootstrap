@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
 <dtml-unless management_page_charset>
@@ -13,14 +13,20 @@
      zmi_embedded_css="1">
 <dtml-if use_css>
 <dtml-if is_nav4>
-<dtml-else>
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-<style>
+<style type="text/css">
+<!--
+
+<dtml-var manage_page_style.css>
+
+-->
 </style>
+<dtml-else>
+<link rel="stylesheet" type="text/css" href="&dtml-BASEPATH1;/manage_page_style.css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 </dtml-if>
 </dtml-if>
 </dtml-let>
+
 </head>
 <body bgcolor="#ffffff" link="#000099" alink="#000099" vlink="#000099">
 <div class="container">
-    <div class="row">
