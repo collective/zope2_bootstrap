@@ -2,7 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:monkey="http://namespaces.plone.org/monkey"
-    xmlns:zcml="http://namespaces.plone.org/zcml"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     >
 
     <!-- Based on https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/browser/admin.zcml#L57 -->
