@@ -28,7 +28,6 @@ ZMI_WARN_HTML = """
     <strong>Warning:</strong> the <span>Zope Management Interface (ZMI)
     provides direct access to Zope database objects (ZODB).
     Do not attempt to copy, cut, paste, add, edit or
-    remove any content, or change any settings, unless you know exactly
-    what you are doing!
+    remove content or modify settings, unless you know exactly what you are doing!
 </div>
 """
