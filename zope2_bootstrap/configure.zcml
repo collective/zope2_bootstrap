@@ -5,30 +5,31 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     >
 
-    <!-- Based on https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/browser/admin.zcml#L57 -->
-    <!-- Provide Zope2 splash when Plone is not installed -->
-    <adapter factory=".patch.AppTraverser" zcml:condition="not-installed Products.CMFPlone" />
-    <browser:page zcml:condition="not-installed Products.CMFPlone"
-        for="OFS.interfaces.IApplication"
-        name="zope2-overview"
-        permission="zope.Public"
-        template="splash.pt"
-        />
+    <configure zcml:condition="not-installed Products.CMFPlone">
+        <!-- Based on https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/browser/admin.zcml#L57 -->
+        <!-- Provide Zope2 splash when Plone is not installed -->
+        <adapter factory=".patch.AppTraverser" />
+        <browser:page
+            for="OFS.interfaces.IApplication"
+            name="zope2-overview"
+            permission="zope.Public"
+            template="splash.pt"
+            />
 
-    <browser:resource
-        name="VlogoWhite250.gif"
-        image="VlogoWhite250.gif"
-        />
+        <browser:resource
+            name="VlogoWhite250.gif"
+            image="VlogoWhite250.gif"
+            />
 
-    <browser:resource
-        name="zopeHIres.jpg"
-        image="zopeHIres.jpg"
-        />
+        <browser:resource
+            name="zopeHIres.jpg"
+            image="zopeHIres.jpg"
+            />
+    </configure>
 
     <include package="collective.monkeypatcher" />
-
     <monkey:patch
-        description="Add Twitter Bootstrap to Zope Management Interface"
+        description="ZMI Bootstrapped!"
         class="App.Management.Navigation"
         handler=".patch.apply_patch"
         original="manage_zmi_logout"
