@@ -24,10 +24,10 @@ LOGOUT_HTML = """<html>
 
 ZMI_WARN_HTML = """
 <div class="alert alert-warning alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
     <strong>Warning:</strong> the <span>Zope Management Interface (ZMI)
     provides direct access to Zope database objects (ZODB).
-    Do not attempt to copy, cut, paste, add, edit or
-    remove content or modify settings unless you know exactly what you are doing!
+    Do not attempt to copy, cut, paste, add, edit or remove content or modify
+    settings unless you know exactly what you are doing!
 </div>
 """

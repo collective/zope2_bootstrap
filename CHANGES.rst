@@ -4,7 +4,7 @@ Changelog
 0.0.8 - 2013-12-08
 ------------------
 
-- Upgrade Bootstrap to 3
+- Upgrade to Bootstrap 3
 - Add splash screen based on Plone
 - Fix JavaScript
 

@@ -16,7 +16,7 @@ setup(
     ],
     long_description=(
         open('README.rst').read() + '\n' +
-        open(os.path.join('docs', 'HISTORY.txt')).read()),
+        open('CHANGES.rst').read()),
     name='zope2_bootstrap',
     packages=find_packages(),
     url='https://github.com/aclark4life/zope2_bootstrap',
