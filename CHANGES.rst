@@ -17,7 +17,7 @@ Changelog
 ------------------
 
 - Use SERVER_URL and ACTUAL_URL for logo src and href respectively (instead of URLX, BASEX)
-- Add ZMI warning, h/t: vangheem
+- Add ZMI warning (suggested by vangheem)
 
 0.0.5 - 2012-06-11
 ------------------
