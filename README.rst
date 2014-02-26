@@ -28,5 +28,6 @@ Or Plone e.g.::
     extends = https://raw.github.com/plock/pins/master/plone-4-3
 
 .. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot.png
+.. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot2.png
 
 .. _`Bootstrapped`: http://getbootstrap.com/
