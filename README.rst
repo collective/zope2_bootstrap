@@ -6,7 +6,7 @@ The Zope2 Management Interface, `Bootstrapped`_.
 Installation
 ============
 
-Use with Zope2 or Plone e.g.::
+Use with Zope2 e.g.::
 
     $ virtualenv-2.7 .
     $ bin/pip install zc.buildout
@@ -21,6 +21,11 @@ Edit your ``buildout.cfg`` file to contain::
     eggs = 
         Zope2
         zope2_bootstrap
+
+Or Plone e.g.::
+
+    [buildout]
+    extends = https://raw.github.com/plock/pins/master/plone-4-3
 
 .. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot.png
 
