@@ -1,16 +1,26 @@
 Introduction
 ============
 
-ZMI `Bootstrapped`_
+The Zope2 Management Interface, `Bootstrapped`_.
 
 Installation
 ============
 
-::
+Use with Zope2 or Plone e.g.::
 
-    $ pip install plock
-    $ bin/plock --zope2-only
-    $ bin/plock fg
+    $ virtualenv-2.7 .
+    $ bin/pip install zc.buildout
+    $ bin/buildout init
+
+Edit your ``buildout.cfg`` file to contain::
+
+    [buildout]
+    extends = https://raw.github.com/plock/pins/master/plone-4-3
+    
+    [plone]
+    eggs = 
+        Zope2
+        zope2_bootstrap
 
 .. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot.png
 
