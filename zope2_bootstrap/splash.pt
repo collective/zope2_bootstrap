@@ -19,7 +19,7 @@
     <!-- Manage -->
     <hr>
     <div style="text-align: center">
-        <a href="/manage_main" class="btn btn-default btn-large">Zope Management Interface</a>
+        <a href="/manage_main" class="btn btn-lg">Zope Management Interface</a>
     </div>
     <footer>
         <p class="footer"><a href="http://zope.org">Zope Community</a></p>
