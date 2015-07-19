@@ -68,7 +68,7 @@ def apply_patch(scope, original, replacement):
     target += ' border="0">'
     html = WARNING
     main = ObjectManager.manage_tabs
-    cook(html, main, target)
+    add_html(html, main, target)
 
     # Add logo
 
@@ -81,11 +81,12 @@ def apply_patch(scope, original, replacement):
         html = ZOPE_LOGO
 
     main = ObjectManager.manage_tabs
-    cook(html, main, target)
+    add_html(html, main, target)
 
 
-def cook(html, main, target):
+def add_html(html, main, target):
     """
+    Add HTML to template and set cooked attribute
     """
 
     orig = main.read()
