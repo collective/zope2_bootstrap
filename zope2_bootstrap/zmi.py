@@ -75,7 +75,7 @@ def apply_patch(scope, original, replacement):
     target = '<table cellpadding="0" cellspacing="0" width="100%"'
     target += ' border="0">'
 
-    if has_plone():
+    if hasattr(Products, 'CMFPlone'):
         html = PLONE_LOGO
     else:
         html = ZOPE_LOGO
@@ -94,13 +94,6 @@ def add_html(html, main, target):
     new = orig[:pos] + html + orig[pos:]
     main.edited_source = new
     main._v_cooked = main.cook()
-
-
-def has_plone():
-    """
-    """
-
-    return hasattr(Products, 'CMFPlone')
 
 
 def manage_zmi_logout(self, REQUEST, RESPONSE):
