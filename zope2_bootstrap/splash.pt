@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Zope2 Bootstrap</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <style>
-        .footer {
-            text-align: right;
-            padding: 1em;
-        }
+<head>
+<title>ZMI Bootstrapped</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style>
+    .footer {
+        text-align: right;
+        padding: 1em;
+    }
+</style>
+</head>
+<body>
+    <a href="https://github.com/collective/zope2_bootstrap"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 
-    </style>
-  </head>
-  <body>
-    <a href="https://github.com/aclark4life/zope2_bootstrap"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-    <!-- Big Zope -->
     <img style="width: 90%" src="/++resource++zopeHIres.jpg">
-    <!-- Manage -->
-    <hr>
+
     <div style="text-align: center">
         <a href="/manage_main" class="btn btn-default btn-lg">Zope Management Interface</a>
     </div>
-    <footer>
-        <p class="footer"><a href="http://zope.org">Zope Community</a></p>
-    </footer>
-    <script src="http://code.jquery.com/jquery.js"></script>
+
+    <p class="footer"><a href="http://zope.org">Zope Community</a></p>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  </body>
+</body>
 </html>

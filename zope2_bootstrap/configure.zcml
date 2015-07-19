@@ -5,10 +5,17 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     >
 
+    <include package="collective.monkeypatcher" />
+
+    <!-- 
+        Provide Zope2 splash when Plone not installed. Based on
+            https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/browser/admin.zcml#L57
+    -->
+
     <configure zcml:condition="not-installed Products.CMFPlone">
-        <!-- Based on https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/browser/admin.zcml#L57 -->
-        <!-- Provide Zope2 splash when Plone is not installed -->
+
         <adapter factory=".patch.AppTraverser" />
+
         <browser:page
             for="OFS.interfaces.IApplication"
             name="zope2-overview"
@@ -25,11 +32,13 @@
             name="zopeHIres.jpg"
             image="zopeHIres.jpg"
             />
+
     </configure>
 
-    <include package="collective.monkeypatcher" />
+    <!-- Apply patch -->
+
     <monkey:patch
-        description="ZMI Bootstrapped!"
+        description="ZMI Bootstrapped"
         class="App.Management.Navigation"
         handler=".patch.apply_patch"
         original="manage_zmi_logout"
