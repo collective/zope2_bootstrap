@@ -14,7 +14,7 @@
 
     <configure zcml:condition="not-installed Products.CMFPlone">
 
-        <adapter factory=".bootstrap.AppTraverser" />
+        <adapter factory=".monkey.AppTraverser" />
 
         <browser:page
             for="OFS.interfaces.IApplication"
@@ -40,9 +40,9 @@
     <monkey:patch
         description="ZMI Bootstrapped"
         class="App.Management.Navigation"
-        handler=".bootstrap.monkeypatch"
+        handler=".monkey.monkeypatch"
         original="manage_zmi_logout"
-        replacement=".bootstrap.manage_zmi_logout"
+        replacement=".monkey.manage_zmi_logout"
         />
 
 </configure>
