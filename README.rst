@@ -1,7 +1,7 @@
 Introduction
 ============
 
-The Zope2 Management Interface, `Bootstrapped`_.
+The Zope Management Interface, `Bootstrapped`_.
 
 Installation
 ============
