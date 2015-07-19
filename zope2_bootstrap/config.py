@@ -1,4 +1,3 @@
-################################################################################
 LOGO_PLONE = """
 <div style="margin: 22px 0 22px 0">
     <a href="<dtml-var "REQUEST.SERVER_URL" html_quote>"><img src="<dtml-var
