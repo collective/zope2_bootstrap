@@ -17,10 +17,11 @@ from zope.publisher.interfaces import IRequest
 import Products
 import os
 
+
 # Based on
 #    https://github.com/plone/Products.CMFPlone/blob/master/Products/\
 #    CMFPlone/browser/admin.py#L34
-
+#
 class AppTraverser(DefaultPublishTraverse):
     """
     """
@@ -89,9 +90,10 @@ def cook(html, main, target):
     main.edited_source = new
     main._v_cooked = main.cook()
 
+
 # c.monkeypatcher requires a function or method so we give it this one, even
 # though we don't need to patch it.
-
+#
 def manage_zmi_logout(self, REQUEST, RESPONSE):
     """
     """
