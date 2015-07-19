@@ -38,8 +38,10 @@ class AppTraverser(DefaultPublishTraverse):
         return DefaultPublishTraverse.publishTraverse(self, request, name)
 
 
-def monkeypatch(scope, original, replacement):
+def apply_patch(scope, original, replacement):
     """
+    scope is the class/module that was specified. original is the string name
+    of the function to replace, and replacement is the replacement function.
     """
 
     # Add Bootstrap

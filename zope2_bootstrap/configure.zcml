@@ -40,9 +40,9 @@
     <monkey:patch
         description="ZMI Bootstrapped"
         class="App.Management.Navigation"
-        handler=".monkey.monkeypatch"
+        handler=".zmi.apply_patch"
         original="manage_zmi_logout"
-        replacement=".monkey.manage_zmi_logout"
+        replacement=".zmi.manage_zmi_logout"
         />
 
 </configure>
