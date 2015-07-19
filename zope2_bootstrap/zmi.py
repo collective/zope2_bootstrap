@@ -40,8 +40,10 @@ class AppTraverser(DefaultPublishTraverse):
 
 def apply_patch(scope, original, replacement):
     """
-    scope is the class/module that was specified. original is the string name
+    Scope is the class/module that was specified. original is the string name
     of the function to replace, and replacement is the replacement function.
+
+    Ignore scope, original and replacement and do other patching.
     """
 
     # Add Bootstrap

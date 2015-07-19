@@ -14,7 +14,7 @@
 
     <configure zcml:condition="not-installed Products.CMFPlone">
 
-        <adapter factory=".monkey.AppTraverser" />
+        <adapter factory=".zmi.AppTraverser" />
 
         <browser:page
             for="OFS.interfaces.IApplication"
