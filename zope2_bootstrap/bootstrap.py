@@ -39,18 +39,19 @@ class AppTraverser(DefaultPublishTraverse):
         return DefaultPublishTraverse.publishTraverse(self, request, name)
 
 
-def apply_patch(scope, original, replacement):
+def monkeypatch(scope, original, replacement):
     """
     """
-    here = os.path.dirname(__file__)
 
     # Add Bootstrap
 
-    manage_main = os.path.join(here, 'manage_main')  # Our custom manage_main
-    manage_page_header = os.path.join(here, 'manage_page_header')
-    manage_page_footer = os.path.join(here, 'manage_page_footer')
+    manage_main = os.path.join('templates', 'manage_main')
+    manage_page_header = os.path.join('templates', 'manage_page_header')
+    manage_page_footer = os.path.join('templates', 'manage_page_footer')
+
     dtmlfile = DTMLFile(manage_page_header, globals())
     setattr(Navigation, 'manage_page_header', dtmlfile)
+
     dtmlfile = DTMLFile(manage_page_footer, globals())
     setattr(Navigation, 'manage_page_footer', dtmlfile)
 

@@ -14,23 +14,23 @@
 
     <configure zcml:condition="not-installed Products.CMFPlone">
 
-        <adapter factory=".patch.AppTraverser" />
+        <adapter factory=".bootstrap.AppTraverser" />
 
         <browser:page
             for="OFS.interfaces.IApplication"
             name="zope2-overview"
             permission="zope.Public"
-            template="splash.pt"
+            template="templates/splash.pt"
             />
 
         <browser:resource
             name="VlogoWhite250.gif"
-            image="VlogoWhite250.gif"
+            image="static/VlogoWhite250.gif"
             />
 
         <browser:resource
             name="zopeHIres.jpg"
-            image="zopeHIres.jpg"
+            image="static/zopeHIres.jpg"
             />
 
     </configure>
@@ -40,9 +40,9 @@
     <monkey:patch
         description="ZMI Bootstrapped"
         class="App.Management.Navigation"
-        handler=".patch.apply_patch"
+        handler=".bootstrap.monkeypatch"
         original="manage_zmi_logout"
-        replacement=".patch.manage_zmi_logout"
+        replacement=".bootstrap.manage_zmi_logout"
         />
 
 </configure>
