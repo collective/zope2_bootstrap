@@ -3,7 +3,7 @@ from setuptools import setup
 import os
 
 
-VERSION = '0.1.0'
+VERSION = '0.2.0'
 
 
 setup(
@@ -13,7 +13,10 @@ setup(
         'Programming Language :: Python :: 2.7',
     ],
     description="ZMI Bootstrapped",
-    keywords='Bootstrap Plone Zope',
+    entry_points={
+        'z3c.autoinclude.plugin': 'target = plone',
+    },
+    keywords='Bootstrap Zope ZMI',
     include_package_data=True,
     install_requires=[
         'collective.monkeypatcher',
@@ -25,7 +28,7 @@ setup(
     name='zope2_bootstrap',
     packages=find_packages(),
     test_suite='tests.TestCase',
-    url='https://github.com/aclark4life/zope2_bootstrap',
+    url='https://github.com/collective/zope2_bootstrap',
     version=VERSION,
     zip_safe=False,
 )
