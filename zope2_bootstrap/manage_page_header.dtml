@@ -22,7 +22,7 @@
 </style>
 <dtml-else>
 <!-- <link rel="stylesheet" type="text/css" href="&dtml-BASEPATH1;/manage_page_style.css" /> -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </dtml-if>
 </dtml-if>
 </dtml-let>

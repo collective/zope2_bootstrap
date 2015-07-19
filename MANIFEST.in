@@ -1,3 +1,10 @@
-include *
-recursive-include docs *
-recursive-include zope2_bootstrap *
+include *.png
+include *.rst
+include *.txt
+include Makefile
+include buildout.cfg
+recursive-include zope2_bootstrap *.dtml
+recursive-include zope2_bootstrap *.gif
+recursive-include zope2_bootstrap *.jpg
+recursive-include zope2_bootstrap *.pt
+recursive-include zope2_bootstrap *.zcml
