@@ -18,12 +18,11 @@ import Products
 import os
 
 
-# Based on
-#    https://github.com/plone/Products.CMFPlone/blob/master/Products/\
-#    CMFPlone/browser/admin.py#L34
-#
 class AppTraverser(DefaultPublishTraverse):
     """
+    Based on
+    https://github.com/plone/Products.CMFPlone/blob/master/\
+    Products/CMFPlone/browser/admin.py#L34
     """
 
     adapts(IApplication, IRequest)
@@ -92,11 +91,17 @@ def cook(html, main, target):
     main._v_cooked = main.cook()
 
 
-# c.monkeypatcher requires a function or method so we give it this one, even
-# though we don't need to patch it.
-#
+def has_plone():
+    """
+    """
+
+    return hasattr(Products, 'CMFPlone')
+
+
 def manage_zmi_logout(self, REQUEST, RESPONSE):
     """
+    c.monkeypatcher requires a function or method so we give it this one even
+    though we're not patching it.
     """
 
     p = getattr(REQUEST, '_logout_path', None)
@@ -108,10 +113,3 @@ def manage_zmi_logout(self, REQUEST, RESPONSE):
     RESPONSE.setHeader('WWW-Authenticate', 'basic realm="%s"' % realm, 1)
     RESPONSE.setBody(LOGOUT)
     return
-
-
-def has_plone():
-    """
-    """
-
-    return hasattr(Products, 'CMFPlone')
