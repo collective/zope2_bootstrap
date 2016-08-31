@@ -44,24 +44,30 @@ this script from going over the network.
 
 parser = OptionParser(usage=usage)
 parser.add_option("--version",
-                  action="store_true", default=False,
+                  action="store_true",
+                  default=False,
                   help=("Return bootstrap.py version."))
-parser.add_option("-t", "--accept-buildout-test-releases",
+parser.add_option("-t",
+                  "--accept-buildout-test-releases",
                   dest='accept_buildout_test_releases',
-                  action="store_true", default=False,
+                  action="store_true",
+                  default=False,
                   help=("Normally, if you do not specify a --version, the "
                         "bootstrap script and buildout gets the newest "
                         "*final* versions of zc.buildout and its recipes and "
                         "extensions for you.  If you use this flag, "
                         "bootstrap and buildout will get the newest releases "
                         "even if they are alphas or betas."))
-parser.add_option("-c", "--config-file",
+parser.add_option("-c",
+                  "--config-file",
                   help=("Specify the path to the buildout configuration "
                         "file to be used."))
-parser.add_option("-f", "--find-links",
+parser.add_option("-f",
+                  "--find-links",
                   help=("Specify a URL to search for buildout releases"))
 parser.add_option("--allow-site-packages",
-                  action="store_true", default=False,
+                  action="store_true",
+                  default=False,
                   help=("Let bootstrap.py use existing site packages"))
 parser.add_option("--buildout-version",
                   help="Use a specific zc.buildout version")
@@ -76,7 +82,6 @@ if options.version:
     print("bootstrap.py version %s" % __version__)
     sys.exit(0)
 
-
 ######################################################################
 # load/install setuptools
 
@@ -87,9 +92,9 @@ except ImportError:
 
 ez = {}
 if os.path.exists('ez_setup.py'):
-    exec(open('ez_setup.py').read(), ez)
+    exec (open('ez_setup.py').read(), ez)
 else:
-    exec(urlopen('https://bootstrap.pypa.io/ez_setup.py').read(), ez)
+    exec (urlopen('https://bootstrap.pypa.io/ez_setup.py').read(), ez)
 
 if not options.allow_site_packages:
     # ez_setup imports site, which adds site packages
@@ -129,21 +134,19 @@ for path in sys.path:
 
 ws = pkg_resources.working_set
 
-setuptools_path = ws.find(
-    pkg_resources.Requirement.parse('setuptools')).location
+setuptools_path = ws.find(pkg_resources.Requirement.parse(
+    'setuptools')).location
 
 # Fix sys.path here as easy_install.pth added before PYTHONPATH
 cmd = [sys.executable, '-c',
        'import sys; sys.path[0:0] = [%r]; ' % setuptools_path +
-       'from setuptools.command.easy_install import main; main()',
-       '-mZqNxd', tmpeggs]
+       'from setuptools.command.easy_install import main; main()', '-mZqNxd',
+       tmpeggs]
 
-find_links = os.environ.get(
-    'bootstrap-testing-find-links',
-    options.find_links or
-    ('http://downloads.buildout.org/'
-     if options.accept_buildout_test_releases else None)
-    )
+find_links = os.environ.get('bootstrap-testing-find-links',
+                            options.find_links or
+                            ('http://downloads.buildout.org/' if
+                             options.accept_buildout_test_releases else None))
 if find_links:
     cmd.extend(['-f', find_links])
 
@@ -167,7 +170,7 @@ if version is None and not options.accept_buildout_test_releases:
     index = setuptools.package_index.PackageIndex(
         search_path=[setuptools_path])
     if find_links:
-        index.add_find_links((find_links,))
+        index.add_find_links((find_links, ))
     req = pkg_resources.Requirement.parse(requirement)
     if index.obtain(req) is not None:
         best = []
@@ -189,8 +192,7 @@ cmd.append(requirement)
 
 import subprocess
 if subprocess.call(cmd) != 0:
-    raise Exception(
-        "Failed to execute command:\n%s" % repr(cmd)[1:-1])
+    raise Exception("Failed to execute command:\n%s" % repr(cmd)[1:-1])
 
 ######################################################################
 # Import and run buildout

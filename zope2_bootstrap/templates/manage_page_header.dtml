@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!doctype html>
 <html>
 <head>
 <dtml-unless management_page_charset>
@@ -13,20 +13,14 @@
      zmi_embedded_css="1">
 <dtml-if use_css>
 <dtml-if is_nav4>
-<style type="text/css">
-<!--
-
-<dtml-var manage_page_style.css>
-
--->
-</style>
 <dtml-else>
-<!-- <link rel="stylesheet" type="text/css" href="&dtml-BASEPATH1;/manage_page_style.css" /> -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </dtml-if>
 </dtml-if>
 </dtml-let>
-
 </head>
 <body bgcolor="#ffffff" link="#000099" alink="#000099" vlink="#000099">
-    <div class="container">
+  <div class="container">

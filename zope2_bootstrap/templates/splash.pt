@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ZMI Bootstrapped</title>
+<title>Zope Management Interface (Bootstrap)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 <style>
     .footer {
         text-align: right;
@@ -12,17 +18,12 @@
 </style>
 </head>
 <body>
-    <a href="https://github.com/collective/zope2_bootstrap"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-
-    <img style="width: 90%" src="/++resource++zopeHIres.jpg">
-
-    <div style="text-align: center">
-        <a href="/manage_main" class="btn btn-default btn-lg">Zope Management Interface</a>
-    </div>
-
-    <p class="footer"><a href="http://zope.org">Zope Community</a></p>
-
-    <script src="//code.jquery.com/jquery-1.11.3.min.js">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <a href="https://github.com/collective/zope2_bootstrap"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+  <img style="width: 90%" src="/++resource++zopeHIres.jpg">
+  <div style="text-align: center">
+    <a href="/manage_main" class="btn btn-default btn-lg">Zope Management Interface</a>
+  </div>
+  <p class="footer"><a href="http://zope.org">Zope Community</a></p>
+  <script src="//code.jquery.com/jquery.js"></script>
 </body>
 </html>
