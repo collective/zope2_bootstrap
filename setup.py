@@ -2,18 +2,18 @@ from setuptools import find_packages
 from setuptools import setup
 import os
 
-VERSION = '0.2.0'
+VERSION = '0.3.0'
 
 setup(author='Alex Clark',
       author_email='aclark@aclark.net',
       classifiers=[
           'Programming Language :: Python :: 2.7',
       ],
-      description="ZMI Bootstrapped",
+      description="Zope Management Interface with Bootstrap",
       entry_points={
           'z3c.autoinclude.plugin': 'target = plone',
       },
-      keywords='Bootstrap Zope ZMI',
+      keywords='Bootstrap Zope Management Interface ZMI',
       include_package_data=True,
       install_requires=[
           'collective.monkeypatcher',

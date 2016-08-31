@@ -1,7 +1,7 @@
 Introduction
 ============
 
-The Zope Management Interface, `Bootstrapped`_.
+The Zope Management Interface, with `Bootstrap <https://getbootstrap.com>`_.
 
 Installation
 ------------
@@ -24,7 +24,12 @@ Installation
     $ bin/buildout
     $ bin/plone fg
 
-.. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot.png
-.. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot2.png
+|
 
-.. _`Bootstrapped`: http://getbootstrap.com/
+.. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot.png
+    :class: align-center
+
+|
+
+.. image:: https://github.com/aclark4life/zope2_bootstrap/raw/master/screenshot2.png
+    :class: align-center
